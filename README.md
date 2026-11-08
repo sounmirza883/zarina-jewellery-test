@@ -1,7 +1,7 @@
 # Zarina Jewels storefront
 
 A frontend-only e-commerce storefront for an artificial jewellery brand in Pakistan.
-It uses mock data and browser localStorage only. There is no backend, database or admin panel.
+It uses mock data and browser localStorage only. There is no backend or database. A small browser-based admin panel is included at `/admin`.
 
 Stack: Next.js (App Router), TypeScript (strict), Tailwind CSS v4, Zustand, react-hook-form with zod, lucide-react.
 
@@ -37,6 +37,7 @@ components/
   cart/                 Cart drawer and cart page view
   checkout/             Checkout form and order success view
   contact/, policies/   Contact form and policy page layout
+  admin/                Admin shell, dashboard, orders and products screens
   ui/                   Buttons, badges, image with placeholder, reveal, skeletons, toasts
 config/site.ts          Brand name, contacts, social links, shipping, announcement
 constants/verse.ts      Arabic and Urdu verse text for the hero
@@ -84,6 +85,19 @@ Every page reads data through `lib/api.ts` only. To connect WooCommerce or anoth
 5. Add the image host to `images.remotePatterns` in `next.config.ts`.
 
 Checkout currently saves the order to localStorage only (`store/orders.ts`). To send real orders, post the order to your API inside `components/checkout/CheckoutForm.tsx`.
+
+## Admin panel
+
+Open `/admin` and sign in. The default demo password is `zarina-admin`. Change it with `NEXT_PUBLIC_ADMIN_PASSWORD` in `.env.local` or in `config/site.ts`.
+
+- Dashboard: order counts, revenue, status breakdown, recent orders and catalogue stats.
+- Orders: search, filter by status, change status (Pending, Confirmed, Shipped, Delivered, Cancelled), view customer details, call or WhatsApp the customer, delete, export CSV.
+- Products: add, edit, delete and toggle stock. Changes are a draft saved in the browser. Use Export to download `products.ts`, replace `data/products.ts` with it and redeploy to publish.
+
+Limits to know about, because the site has no backend:
+
+- The login is a demo gate only. The password is visible in the browser bundle, so it is not real security. Do not use it to protect real customer data.
+- Orders are stored in the customer's own browser. The admin only sees orders placed in the same browser. To receive real orders from customers, add a backend and post the order in `components/checkout/CheckoutForm.tsx`.
 
 ## Notes
 

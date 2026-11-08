@@ -121,7 +121,7 @@ export function DashboardView({ catalogue }: { catalogue: CatalogueStats }) {
           </Link>
         </section>
       ) : (
-        <div className="mt-6 grid gap-6 lg:grid-cols-3">
+        <div className="mt-6 grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-3">
           <section aria-labelledby="status-heading" className="rounded-sm border border-line bg-white p-4 lg:col-span-1">
             <h2 id="status-heading" className="text-xl">
               Orders by status
