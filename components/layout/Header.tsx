@@ -50,6 +50,7 @@ export function Header() {
     "relative inline-flex h-11 w-11 items-center justify-center text-charcoal transition-colors duration-200 hover:text-gold";
 
   return (
+    <>
     <header className="sticky top-0 z-40 border-b border-line bg-ivory/95 backdrop-blur">
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between gap-2 px-4 sm:px-6 lg:h-20 lg:px-8">
         <div className="flex items-center lg:hidden">
@@ -164,8 +165,9 @@ export function Header() {
           </button>
         </form>
       </div>
-
-      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
     </header>
+    {/* Outside the header: backdrop-blur on the header would trap this fixed panel inside it */}
+    <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
+    </>
   );
 }
