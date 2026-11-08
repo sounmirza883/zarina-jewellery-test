@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useSyncExternalStore } from "react";
-import { useForm, type FieldError } from "react-hook-form";
+import { useForm, useWatch, type FieldError } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Banknote, ShoppingBag } from "lucide-react";
 import { Button, ButtonLink } from "@/components/ui/Button";
@@ -68,11 +68,12 @@ export function CheckoutForm() {
   const items = useCartStore((s) => s.items);
   const clear = useCartStore((s) => s.clear);
   const [submitError, setSubmitError] = useState(false);
+  const [placed, setPlaced] = useState(false);
 
   const {
     register,
     handleSubmit,
-    watch,
+    control,
     formState: { errors, isSubmitting },
   } = useForm<CheckoutValues>({
     resolver: zodResolver(checkoutSchema),
@@ -88,9 +89,9 @@ export function CheckoutForm() {
     },
   });
 
-  const notesLength = watch("notes")?.length ?? 0;
+  const notesLength = (useWatch({ control, name: "notes" }) ?? "").length;
 
-  if (!mounted) {
+  if (!mounted || placed) {
     return (
       <div className="grid gap-8 lg:grid-cols-[1fr_400px]" role="status" aria-label="Loading checkout">
         <Skeleton className="h-96 w-full" />
@@ -138,6 +139,7 @@ export function CheckoutForm() {
         paymentMethod: "Cash on Delivery",
       };
       saveOrder(order);
+      setPlaced(true);
       clear();
       router.push("/order-success");
     } catch {

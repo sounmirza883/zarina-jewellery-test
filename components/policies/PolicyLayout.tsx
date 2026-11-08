@@ -11,7 +11,7 @@ const prose =
 
 export function PolicyLayout({ title, lastUpdated = "November 2026", children }: PolicyLayoutProps) {
   return (
-    <Container as="main" className="py-12 sm:py-16">
+    <Container className="py-12 sm:py-16">
       <article className="mx-auto max-w-3xl">
         <h1 className="text-4xl text-charcoal sm:text-5xl">{title}</h1>
         <p className="mt-3 text-sm text-muted">Last updated: {lastUpdated}</p>

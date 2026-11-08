@@ -18,7 +18,7 @@ const policies = [
 
 export default function PoliciesPage() {
   return (
-    <Container as="main" className="py-12 sm:py-16">
+    <Container className="py-12 sm:py-16">
       <SectionHeading as="h1" title="Store Policies" subtitle="Clear and simple information about shopping with us." />
       <ul className="mx-auto mt-10 grid max-w-3xl gap-4 sm:grid-cols-2">
         {policies.map((p) => (

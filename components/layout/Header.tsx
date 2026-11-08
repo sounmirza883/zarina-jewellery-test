@@ -75,7 +75,7 @@ export function Header() {
               <path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z" />
             </svg>
           </span>
-          <span className="font-heading text-2xl font-semibold tracking-[0.12em] text-charcoal uppercase sm:text-3xl">
+          <span className="font-heading text-xl font-semibold tracking-[0.1em] whitespace-nowrap text-charcoal uppercase sm:text-3xl sm:tracking-[0.12em]">
             {siteConfig.name}
           </span>
         </Link>

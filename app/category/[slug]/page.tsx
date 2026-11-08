@@ -53,7 +53,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   };
 
   return (
-    <Container as="main" className="py-10 sm:py-14">
+    <Container className="py-10 sm:py-14">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd).replace(/</g, "\\u003c") }}

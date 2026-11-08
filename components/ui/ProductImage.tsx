@@ -50,6 +50,10 @@ export function ProductImage({
           priority={priority}
           loading={priority ? undefined : "lazy"}
           onError={() => setFailed(true)}
+          ref={(img) => {
+            // Catches images that failed before React attached onError
+            if (img && img.complete && img.naturalWidth === 0) setFailed(true);
+          }}
           className={`object-cover ${zoom ? "transition-transform duration-500 ease-out group-hover:scale-105" : ""}`}
         />
       )}

@@ -14,7 +14,7 @@ export const metadata = createMetadata({
 
 export default function AboutPage() {
   return (
-    <main>
+    <>
       <Container className="py-12 sm:py-16">
         <SectionHeading
           as="h1"
@@ -90,6 +90,6 @@ export default function AboutPage() {
           </Reveal>
         </div>
       </Container>
-    </main>
+    </>
   );
 }

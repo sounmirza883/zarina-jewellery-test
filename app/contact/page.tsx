@@ -50,7 +50,7 @@ export default function ContactPage() {
   const telHref = `tel:${contact.phone.replace(/[^\d+]/g, "")}`;
 
   return (
-    <Container as="main" className="py-12 sm:py-16">
+    <Container className="py-12 sm:py-16">
       <SectionHeading
         as="h1"
         eyebrow="Get in touch"

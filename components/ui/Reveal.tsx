@@ -17,7 +17,7 @@ export function Reveal({ children, className = "", delayMs = 0 }: RevealProps) {
     const node = ref.current;
     if (!node) return;
     if (typeof IntersectionObserver === "undefined") {
-      setVisible(true);
+      node.classList.add("is-visible");
       return;
     }
     const observer = new IntersectionObserver(

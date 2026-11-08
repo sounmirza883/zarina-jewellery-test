@@ -15,7 +15,7 @@ export default async function Page() {
   const [products, categories] = await Promise.all([getProducts({ isBestSeller: true }), getCategories()]);
 
   return (
-    <Container as="main" className="py-10 sm:py-14">
+    <Container className="py-10 sm:py-14">
       <header className="mb-8 text-center">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl">Best Sellers</h1>
         <span className="gold-line mx-auto mt-4 block w-24" aria-hidden="true" />

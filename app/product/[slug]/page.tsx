@@ -77,7 +77,7 @@ export default async function ProductPage({ params }: PageProps) {
   };
 
   return (
-    <Container as="main" className="py-6 sm:py-10">
+    <Container className="py-6 sm:py-10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(productSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema) }} />
 
