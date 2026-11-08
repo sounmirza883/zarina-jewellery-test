@@ -73,6 +73,10 @@ export interface OrderCustomer {
   notes?: string;
 }
 
+export type OrderStatus = "Pending" | "Confirmed" | "Shipped" | "Delivered" | "Cancelled";
+
+export const ORDER_STATUSES: OrderStatus[] = ["Pending", "Confirmed", "Shipped", "Delivered", "Cancelled"];
+
 export interface Order {
   orderNumber: string;
   createdAt: string;
@@ -82,4 +86,6 @@ export interface Order {
   shipping: number;
   total: number;
   paymentMethod: "Cash on Delivery";
+  /** Set by the admin panel. Missing means Pending. */
+  status?: OrderStatus;
 }

@@ -38,6 +38,14 @@ export const siteConfig = {
   /** Text shown in the announcement bar. Set to an empty string to hide the bar. */
   announcement: "Cash on Delivery available across Pakistan",
 
+  /**
+   * Admin panel login. This is a demo gate only, because the site has no backend.
+   * Anyone can read this value in the browser bundle. Do not reuse a real password.
+   */
+  admin: {
+    password: process.env.NEXT_PUBLIC_ADMIN_PASSWORD ?? "zarina-admin",
+  },
+
   ceo: {
     name: "Zarina Khan",
     title: "Founder and CEO",

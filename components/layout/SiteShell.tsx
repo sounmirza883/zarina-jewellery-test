@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { Toaster } from "@/components/ui/Toaster";
 import { AnnouncementBar } from "./AnnouncementBar";
@@ -8,6 +9,18 @@ import { Header } from "./Header";
 import { WhatsAppButton } from "./WhatsAppButton";
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+
+  // The admin panel has its own layout, so skip the storefront header, footer and WhatsApp button
+  if (pathname.startsWith("/admin")) {
+    return (
+      <>
+        {children}
+        <Toaster />
+      </>
+    );
+  }
+
   return (
     <>
       <a
