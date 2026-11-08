@@ -11,7 +11,7 @@ export const metadata = createMetadata({
 
 export default function OrderSuccessPage() {
   return (
-    <Container as="main" className="py-10 sm:py-14">
+    <Container className="py-10 sm:py-14">
       <OrderSuccess />
     </Container>
   );

@@ -11,7 +11,7 @@ export const metadata = createMetadata({
 
 export default function CartPage() {
   return (
-    <Container as="main" className="py-10 sm:py-14">
+    <Container className="py-10 sm:py-14">
       <h1 className="mb-8 text-3xl sm:text-4xl">Your Cart</h1>
       <CartView />
     </Container>

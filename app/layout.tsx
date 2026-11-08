@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Amiri, Cormorant_Garamond, Inter, Noto_Nastaliq_Urdu } from "next/font/google";
 import { siteConfig } from "@/config/site";
+import { SiteShell } from "@/components/layout/SiteShell";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -50,7 +51,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       lang="en"
       className={`${cormorant.variable} ${inter.variable} ${amiri.variable} ${nastaliq.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <SiteShell>{children}</SiteShell>
+      </body>
     </html>
   );
 }
